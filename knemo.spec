@@ -1,12 +1,12 @@
 Summary:	The KDE Network Monitor
 Summary(pl):	Monitor sieci dla KDE
 Name:		knemo
-Version:	0.2.1
+Version:	0.2.3
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://www.eris23.de/knemo/%{name}-%{version}.tar.bz2
-# Source0-md5:	4a268e2feecf44c27b91148ec36db6fb
+# Source0-md5:	25d2d3731a6eead4375b491ba56981a6
 URL:		http://kde-apps.org/content/show.php?content=12956
 BuildRequires:	kdelibs-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
