@@ -8,8 +8,8 @@ Group:		X11/Applications
 Source0:	http://kde-apps.org/content/files/12956-%{name}-%{version}.tar.bz2
 # Source0-md5:	e9bd015a053648513aa9b5dc53ccb9ba
 URL:		http://kde-apps.org/content/show.php?content=12956
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 BuildRequires:	kdelibs-devel
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 KNemo offers a network monitor similar to the one found in Windows.
@@ -36,20 +36,22 @@ KDE/Mened¿er Us³ug.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+%find_lang %{name} --all-name
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %{_libdir}/kde3/kcm_knemo.la
-%{_libdir}/kde3/kcm_knemo.so
+%attr(755,root,root) %{_libdir}/kde3/kcm_knemo.so
 %{_libdir}/kde3/kded_knemod.la
-%{_libdir}/kde3/kded_knemod.so
+%attr(755,root,root) %{_libdir}/kde3/kded_knemod.so
+%{_datadir}/apps/knemo/eventsrc
 %{_datadir}/applnk/Settings/Network/kcm_knemo.desktop
 %{_datadir}/services/kded/knemod.desktop
-%{_datadir}/icons/*/*/actions/*.png
-%{_datadir}/apps/knemo/eventsrc
-%{_datadir}/locale/*/LC_MESSAGES/*
+%{_iconsdir}/*/*/actions/*.png
