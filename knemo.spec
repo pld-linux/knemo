@@ -34,7 +34,9 @@ KDE/Mened¿er Us³ug.
 %build
 cp -f /usr/share/automake/config.sub admin
 
-%configure
+%configure \
+	--with-qt-libraries=%{_libdir}
+    
 %{__make}
 
 %install
