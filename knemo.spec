@@ -1,5 +1,5 @@
 Summary:	The KDE Network Monitor
-Summary(pl):	Monitor sieci dla KDE
+Summary(pl.UTF-8):   Monitor sieci dla KDE
 Name:		knemo
 Version:	0.4.5
 Release:	1
@@ -20,13 +20,13 @@ IMPORTANT: KNemo is not an executable but an KDED service. Therefore
 it has to be started using Control Center/KDE Components/Service
 Manager.
 
-%description -l pl
-KNemo jest monitorem sieci podobnym do tego spod Windows. Dla ka¿dego
-interfejsu wy¶wietla ikonkê w zasobniku systemowym.
+%description -l pl.UTF-8
+KNemo jest monitorem sieci podobnym do tego spod Windows. Dla kaÅ¼dego
+interfejsu wyÅ›wietla ikonkÄ™ w zasobniku systemowym.
 
-WA¯NE: KNemo nie jest programem wykonywalnym, ale serwisem KDED,
-dlatego musi byæ uruchomiony za pomoc± Centrum Sterowania/Sk³adniki
-KDE/Mened¿er Us³ug.
+WAÅ»NE: KNemo nie jest programem wykonywalnym, ale serwisem KDED,
+dlatego musi byÄ‡ uruchomiony za pomocÄ… Centrum Sterowania/SkÅ‚adniki
+KDE/MenedÅ¼er UsÅ‚ug.
 
 %prep
 %setup -q
