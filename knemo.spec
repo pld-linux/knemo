@@ -1,5 +1,5 @@
 Summary:	The KDE Network Monitor
-Summary(pl.UTF-8):   Monitor sieci dla KDE
+Summary(pl.UTF-8):	Monitor sieci dla KDE
 Name:		knemo
 Version:	0.4.5
 Release:	1
