@@ -18,17 +18,19 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 KNemo offers a network monitor similar to the one found in Windows.
 For every network interface it displays an icon in the systray.
 
-IMPORTANT: KNemo is not an executable but an KDED service. Therefore
-it has to be started using Control Center/KDE Components/Service
-Manager.
+IMPORTANT: To start KNemo go to the Control Center/Internet &
+Network/Network Monitor. There is an option at the top of the dialog
+saying "Use KNemo to monitor your interfaces". Activate it and KNemo
+should start with KDE.
 
 %description -l pl.UTF-8
 KNemo jest monitorem sieci podobnym do tego spod Windows. Dla każdego
 interfejsu wyświetla ikonkę w zasobniku systemowym.
 
-WAŻNE: KNemo nie jest programem wykonywalnym, ale serwisem KDED,
-dlatego musi być uruchomiony za pomocą Centrum Sterowania/Składniki
-KDE/Menedżer Usług.
+WAŻNE: Aby uruchomić KNemo przejdź do Centrum Sterowania/Internet i
+sieć/Monitor sieci. Na górze okna znajduje się opcja "Use KNemo to
+monitor your interfaces". Włącz ją a KNemo powinno się uruchomić
+podczas startu KDE.
 
 %prep
 %setup -q
