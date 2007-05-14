@@ -27,10 +27,10 @@ should start with KDE.
 KNemo jest monitorem sieci podobnym do tego spod Windows. Dla każdego
 interfejsu wyświetla ikonkę w zasobniku systemowym.
 
-WAŻNE: Aby uruchomić KNemo przejdź do Centrum Sterowania/Internet i
-sieć/Monitor sieci. Na górze okna znajduje się opcja "Use KNemo to
-monitor your interfaces". Włącz ją a KNemo powinno się uruchomić
-podczas startu KDE.
+WAŻNE: Aby uruchomić KNemo należy przejść do Centrum
+Sterowania/Internet i sieć/Monitor sieci. Na górze okna znajduje się
+opcja "Use KNemo to monitor your interfaces". Po włączeniu jej KNemo
+powinno się uruchamiać podczas startu KDE.
 
 %prep
 %setup -q
