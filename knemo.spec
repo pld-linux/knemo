@@ -1,13 +1,15 @@
 Summary:	The KDE Network Monitor
 Summary(pl):	Monitor sieci dla KDE
 Name:		knemo
-Version:	0.4.5
+Version:	0.4.8
 Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://kde-apps.org/content/files/12956-%{name}-%{version}.tar.bz2
-# Source0-md5:	cc61a7f7398a3a6fb86afe0fc6848d33
+Source0:	http://kde-apps.org/CONTENT/content-files/12956-%{name}-%{version}.tar.bz2
+# Source0-md5:	8c716f01be470fd6690ed0902adcc536
+Patch0:		kde-ac260-lt.patch
 URL:		http://kde-apps.org/content/show.php?content=12956
+BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	kdelibs-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -16,24 +18,27 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 KNemo offers a network monitor similar to the one found in Windows.
 For every network interface it displays an icon in the systray.
 
-IMPORTANT: KNemo is not an executable but an KDED service. Therefore
-it has to be started using Control Center/KDE Components/Service
-Manager.
+IMPORTANT: To start KNemo go to the Control Center/Internet &
+Network/Network Monitor. There is an option at the top of the dialog
+saying "Use KNemo to monitor your interfaces". Activate it and KNemo
+should start with KDE.
 
 %description -l pl
 KNemo jest monitorem sieci podobnym do tego spod Windows. Dla ka¿dego
 interfejsu wy¶wietla ikonkê w zasobniku systemowym.
 
-WA¯NE: KNemo nie jest programem wykonywalnym, ale serwisem KDED,
-dlatego musi byæ uruchomiony za pomoc± Centrum Sterowania/Sk³adniki
-KDE/Mened¿er Us³ug.
+WA¯NE: Aby uruchomiæ KNemo nale¿y przej¶æ do Centrum
+Sterowania/Internet i sieæ/Monitor sieci. Na górze okna znajduje siê
+opcja "Use KNemo to monitor your interfaces". Po w³±czeniu jej KNemo
+powinno siê uruchamiaæ podczas startu KDE.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 cp -f /usr/share/automake/config.sub admin
-
+%{__make} -f admin/Makefile.common cvs
 %configure \
 	--with-qt-libraries=%{_libdir}
 
