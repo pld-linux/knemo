@@ -11,6 +11,7 @@ Patch0:		kde-ac260-lt.patch
 URL:		http://kde-apps.org/content/show.php?content=12956
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	gettext-devel
 BuildRequires:	kdelibs-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
