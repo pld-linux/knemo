@@ -1,18 +1,23 @@
+
+%define		kdever	4.4.4
+%define		qtver	4.6.2
+
 Summary:	The KDE Network Monitor
 Summary(pl.UTF-8):	Monitor sieci dla KDE
 Name:		knemo
-Version:	0.4.8
-Release:	3
+Version:	0.6.3
+Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://kde-apps.org/CONTENT/content-files/12956-%{name}-%{version}.tar.bz2
-# Source0-md5:	8c716f01be470fd6690ed0902adcc536
-Patch0:		kde-ac260-lt.patch
+# Source0-md5:	ee21176b15a0ee947d5f3c6dbfa568e4
 URL:		http://kde-apps.org/content/show.php?content=12956
-BuildRequires:	autoconf
-BuildRequires:	automake
-BuildRequires:	gettext-devel
-BuildRequires:	kdelibs-devel
+BuildRequires:  automoc4 >= 0.9.88
+BuildRequires:  cmake >= 2.8.0
+BuildRequires:  kde4-kdebase-workspace-devel >= %{kdever}
+BuildRequires:  kde4-kdelibs-devel >= %{kdever}
+BuildRequires:  qt4-build >= %{qtver}
+BuildRequires:  qt4-qmake >= %{qtver}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -35,20 +40,23 @@ powinno się uruchamiać podczas startu KDE.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
-cp -f /usr/share/automake/config.sub admin
-%{__make} -f admin/Makefile.common cvs
-%configure \
-	--with-qt-libraries=%{_libdir}
+install -d build
+cd build
+%cmake .. \
+	-DCMAKE_BUILD_TYPE=%{!?debug:Release}%{?debug:Debug} \
+	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
+%if "%{_lib}" == "lib64"
+	-DLIB_SUFFIX=64
+%endif
 
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
+%{__make} -C build install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 %find_lang %{name} --all-name
@@ -58,12 +66,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%{_libdir}/kde3/kcm_knemo.la
-%attr(755,root,root) %{_libdir}/kde3/kcm_knemo.so
-%{_libdir}/kde3/kded_knemod.la
-%attr(755,root,root) %{_libdir}/kde3/kded_knemod.so
+%attr(755,root,root) %{_bindir}/knemo
+%attr(755,root,root) %{_libdir}/kde4/kcm_knemo.so
+%{_desktopdir}/kde4/knemo.desktop
 %{_datadir}/apps/knemo
-%{_datadir}/services/kded/knemod.desktop
-%{_desktopdir}/kde/kcm_knemo.desktop
-%{_iconsdir}/*/*/actions/*.png
-%{_iconsdir}/crystalsvg/*/apps/knemo.png
+%{_datadir}/autostart/knemo.desktop
+%{_iconsdir}/hicolor/*x*/apps/knemo.png
+%{_iconsdir}/hicolor/*x*/status/knemo*.png
+%{_datadir}/kde4/services/kcm_knemo.desktop
