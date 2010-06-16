@@ -12,12 +12,12 @@ Group:		X11/Applications
 Source0:	http://kde-apps.org/CONTENT/content-files/12956-%{name}-%{version}.tar.bz2
 # Source0-md5:	ee21176b15a0ee947d5f3c6dbfa568e4
 URL:		http://kde-apps.org/content/show.php?content=12956
-BuildRequires:  automoc4 >= 0.9.88
-BuildRequires:  cmake >= 2.8.0
-BuildRequires:  kde4-kdebase-workspace-devel >= %{kdever}
-BuildRequires:  kde4-kdelibs-devel >= %{kdever}
-BuildRequires:  qt4-build >= %{qtver}
-BuildRequires:  qt4-qmake >= %{qtver}
+BuildRequires:	automoc4 >= 0.9.88
+BuildRequires:	cmake >= 2.8.0
+BuildRequires:	kde4-kdebase-workspace-devel >= %{kdever}
+BuildRequires:	kde4-kdelibs-devel >= %{kdever}
+BuildRequires:	qt4-build >= %{qtver}
+BuildRequires:	qt4-qmake >= %{qtver}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
